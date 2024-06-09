@@ -13,7 +13,7 @@ select.addEventListener("submit", (e)=>{
       
   const value = document.getElementById("option").value;
   
-  let url = "https://opentdb.com/api.php?amount=10&category=9&difficulty=hard&type=multiple";
+  let url = "https://opentdb.com/api.php?amount=20&category=9&difficulty=hard&type=multiple";
   
   if(value !== "") {
         url += `https://opentdb.com/api.php?amount=10&category=${ value }&difficulty=hard&type=multiple`
@@ -29,9 +29,28 @@ select.addEventListener("submit", (e)=>{
       let currentQuestion = 0;
       let score = 0;
        showQuestion();
+
+        //setting timer for the questions
+    
+    let minutes = 5;
+    let sec = 59;
       
+      setInterval(function () {
+             
+        timer.textContent =`Time left : ${minutes}: ${sec}`;
+            sec--;
+            if(sec === 0) {
+                  minutes--;
+                  sec = 60                  
+            }
+            if (minutes === 0) {
+                  showResult();
+            }
+      }, 1000);
+        
       function showQuestion() {
-      // 
+      // the value return from api calls
+        
       let results = res.results;
     const questions = results[currentQuestion];
  questionElement.innerHTML= questions.question;
