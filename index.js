@@ -14,10 +14,10 @@ select.addEventListener("submit", (e)=>{
       
   const value = document.getElementById("option").value;
   
-  let url = "https://opentdb.com/api.php?amount=3&category=9&difficulty=hard&type=multiple";
+  let url = "https://opentdb.com/api.php?amount=20&category=9&difficulty=hard&type=multiple";
   
   if(value !== "") {
-        url += `https://opentdb.com/api.php?amount=3&category=${ value }&difficulty=hard&type=multiple`
+        url += `https://opentdb.com/api.php?amount=20&category=${ value }&difficulty=hard&type=multiple`
   
   
 
@@ -34,8 +34,8 @@ select.addEventListener("submit", (e)=>{
 
         //setting timer for the questions
     
-    let minutes = 1;
-    let sec = 30;
+    let minutes = 4;
+    let sec = 59;
       
       setInterval(function () {
              
@@ -127,7 +127,7 @@ select.addEventListener("submit", (e)=>{
     document.getElementById("again").addEventListener("click",()=>{
          window.location.reload();
     })
-    if (score >= 6) {
+    if (score >= 10) {
       clapping.play();
      clapping.playbackspeed = "1.72";
     }
