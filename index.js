@@ -34,7 +34,7 @@ select.addEventListener("submit", (e)=>{
 
         //setting timer for the questions
     
-    let minutes = 4;
+    let minutes = 5;
     let sec = 59;
       
       setInterval(function () {
@@ -55,9 +55,8 @@ select.addEventListener("submit", (e)=>{
             if (minutes === 0) {
                timer.textContent = "Time Up";
                setTimeout(function () {
-                  showResult();   
-               },1000)
-              
+                  showResult();
+               },1000);
             }
       }, 1000);
         
