@@ -7,6 +7,7 @@ const questionElement = document.getElementById("question");
   const clapping = document.getElementById("clapping");
   const laughing = document.getElementById("laughing");
   const select = document.getElementById("select");
+  const timer = document.getElementById("timer");
   
 select.addEventListener("submit", (e)=>{
       e.preventDefault();
@@ -44,6 +45,7 @@ select.addEventListener("submit", (e)=>{
                   sec = 60                  
             }
             if (minutes === 0) {
+                  timer.textContent = "Time Up";
                   showResult();
             }
       }, 1000);
