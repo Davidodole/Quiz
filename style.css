@@ -61,6 +61,12 @@ h1 {
       background: #000;
       color: #fff;
 }
+#timer{
+      margin: 8px 0;
+      background-color: #222;
+      padding: 7px;
+      color: #fff;
+}
 
 button {
   display: block;
