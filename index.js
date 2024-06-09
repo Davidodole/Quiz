@@ -14,10 +14,10 @@ select.addEventListener("submit", (e)=>{
       
   const value = document.getElementById("option").value;
   
-  let url = "https://opentdb.com/api.php?amount=20&category=9&difficulty=hard&type=multiple";
+  let url = "https://opentdb.com/api.php?amount=3&category=9&difficulty=hard&type=multiple";
   
   if(value !== "") {
-        url += `https://opentdb.com/api.php?amount=10&category=${ value }&difficulty=hard&type=multiple`
+        url += `https://opentdb.com/api.php?amount=3&category=${ value }&difficulty=hard&type=multiple`
   
   
 
@@ -29,24 +29,35 @@ select.addEventListener("submit", (e)=>{
       // declearing a variables 
       let currentQuestion = 0;
       let score = 0;
+      let results = res.results;
        showQuestion();
 
         //setting timer for the questions
     
-    let minutes = 5;
-    let sec = 59;
+    let minutes = 1;
+    let sec = 30;
       
       setInterval(function () {
              
-        timer.textContent =`Time left : ${minutes}: ${sec}`;
+        timer.textContent =`Time left : ${minutes}: ${sec} sec`;
             sec--;
+            if(sec <= 9) {
+            
+                  timer.textContent =`Time left : ${minutes}: 0${sec} sec`;
+            }
+            
             if(sec === 0) {
                   minutes--;
-                  sec = 60                  
+                  sec = 59              
+            
             }
+            
             if (minutes === 0) {
-                  timer.textContent = "Time Up";
-                  showResult();
+               timer.textContent = "Time Up";
+               setTimeout(function () {
+                  showResult();   
+               },1000)
+              
             }
       }, 1000);
         
@@ -105,11 +116,12 @@ select.addEventListener("submit", (e)=>{
       correct.innerHTML= "correct answer: " + answer;
     }
   }
+  }
   
   function showResult() {
     quiz.innerHTML = `
       <h1>Quiz Completed!</h1>
-      <p>Your score: ${score}/${results.length}</p>
+    <p>Your score: ${score}/${results.length}</p>
       <button id="again"> Play Again</button>
     `;
     document.getElementById("again").addEventListener("click",()=>{
@@ -125,11 +137,7 @@ select.addEventListener("submit", (e)=>{
     }
   }
   
-  }
+  })
      
-});
-
-
-}
-
+};
 })
