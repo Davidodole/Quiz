@@ -1,4 +1,5 @@
-const questionElement = document.getElementById("question");
+//  declearing a variables
+ const questionElement = document.getElementById("question");
   const optionsElement = document.getElementById("options");
   const submitButton = document.getElementById("submit");
   const correct = document.getElementById("correct");
@@ -59,6 +60,8 @@ select.addEventListener("submit", (e)=>{
                },1000);
             }
       }, 1000);
+
+        // showing question that was retrieved from api calls to the users 
         
       function showQuestion() {
       // the value return from api calls
@@ -67,8 +70,10 @@ select.addEventListener("submit", (e)=>{
     const questions = results[currentQuestion];
  questionElement.innerHTML= questions.question;
     
-    
+    // showing categories of questions based on the users selection 
     category.innerHTML= questions.category;
+
+        //using splice to add and remove correct answers
   const incorrect_Answers = questions.incorrect_answers;
   const correct_Answer = questions.correct_answer;
   
@@ -77,26 +82,40 @@ select.addEventListener("submit", (e)=>{
   
   
   optionsElement.innerHTML = "";
-  answers.forEach(ans =>{
         
+  answers.forEach(ans =>{
+
+    // creating a button to display all answers 
         const button = document.createElement("button");
       button.innerText = ans;
+
+    //append the button to optionsElement
        optionsElement.appendChild(button);
-       
+
+    //creating eventlistener to every button the user clicked on 
+    
        button.addEventListener("click", selectAnswer);
     })
-    
+
+        // selecting answers from the displayed buttons 
+        
     function selectAnswer(e) {
     const selectedButton = e.target;
     const answer = correct_Answer;
   
     if (selectedButton.innerText === answer) {
+
+      // adding to the score of the users if the click button equals to the answers
+      
       score++;
+      // change the background to green to indicate correct answer 
       selectedButton.style.background = "green";
     }
     else{
+      // change the background to red to indicate wrong answer 
           selectedButton.style.background = "red";
     }
+      //iterate to the next question 
       
       currentQuestion++;    
   
@@ -116,21 +135,28 @@ select.addEventListener("submit", (e)=>{
     }
   }
   }
-  
+        
+  //after the quiz show this
+        
   function showResult() {
     quiz.innerHTML = `
       <h1>Quiz Completed!</h1>
     <p>Your score: ${score}/${results.length}</p>
       <button id="again"> Play Again</button>
     `;
+
+    //adding eventlistener to reload page
     document.getElementById("again").addEventListener("click",()=>{
          window.location.reload();
     })
+
+    //if the scores is higher than 10 play this 
     if (score >= 10) {
       clapping.play();
      clapping.playbackspeed = "1.72";
     }
     else{
+      // if the scores is less than 10 play this
        laughing.play();
      laughing.playbackspeed = "1.72";
     }
