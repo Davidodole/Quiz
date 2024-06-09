@@ -1,0 +1,107 @@
+*{
+      margin: 0;
+      box-sizing: border-box;
+      padding: 0;
+      text-align: center;
+      line-height: 1.5;
+      letter-spacing: 1.4px;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color:black;
+background-image:
+radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+}
+p{
+      font-weight: 600;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+
+#quiz {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #66ebf0;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(198, 222, 60, 0.2);
+}
+
+h1 {
+  text-align: center;
+  color: #333333;
+  padding: 10px 5px;
+  font-size: 35px;
+}
+
+#question {
+  margin-bottom: 20px;
+}
+
+#options {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 20px;
+  
+}
+#submit{
+      padding: 10px;
+      margin: 10px 0;
+      background: #000;
+      color: #fff;
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: rgb(227, 238, 10), 245, 161);
+  color: #131313;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #8f8d8d;
+}
+#correct{
+      margin-top: 20px;
+      padding: 20px 0;
+      font-size: 17px;
+}
+
+select {
+      margin: 0 0 10px;
+      outline: none;
+      text-transform: capitalize;
+      font-size: 13px;
+      border: none;
+      box-shadow: 0 0 .4em #666;
+      background: transparent;
+      line-height: 1.2 !important;
+}
+form{
+      display: flex;
+      gap: 5px;
+}
+.wrap{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      column-gap: 10px;
+      margin: 0 0 30px;
+}
